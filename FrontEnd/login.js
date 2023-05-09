@@ -10,7 +10,7 @@ btnConnexion.addEventListener ("click", function login() {
         headers: {
         "Content-Type": "application/json",
         },
-    }).then(res => {
-        window.location = "index.html";
-    }).catch(err => alert ("Erreur dans l’identifiant ou le mot de passe"))
-});
+    }).then(res => 
+        res.ok == true ? window.location = "index.html" : alert ("Erreur dans l’identifiant ou le mot de passe"))
+    .catch(err => alert ("Erreur dans l’identifiant ou le mot de passe"))
+})
