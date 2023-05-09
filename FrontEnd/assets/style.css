@@ -191,6 +191,32 @@ footer nav ul {
 	margin: 2em
 }
 
+/* filtres */
+
+.filtres{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin: 50px 0 50px 0;
+}
+
+.filtres button {
+	margin: 10px;
+	background-color: white;
+	border:#1D6154 solid;
+	color:#1D6154;
+	padding: 5px 25px 5px 25px;
+	border-radius: 90px;
+	font-weight: bold;
+	font-family: syne;
+}
+
+.filtres button:hover {
+	background-color:#1D6154;
+	cursor: pointer;
+	color:#FFFFFF
+}
+
 /* page de log in */
 
 .log-in {
@@ -223,6 +249,10 @@ footer nav ul {
 	border-radius: 25px;
 	border-width: 0;
 	margin-bottom: 10px;
+}
+
+.btn-connexion:hover {
+	cursor: pointer;
 }
 
 .log-in a {
