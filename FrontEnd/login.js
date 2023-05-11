@@ -10,7 +10,12 @@ btnConnexion.addEventListener ("click", function login() {
         headers: {
         "Content-Type": "application/json",
         },
-    }).then(res => 
-        res.ok == true ? window.location = "index.html" : alert ("Erreur dans l’identifiant ou le mot de passe"))
+    }).then(res => {
+        if (res.ok == true) {
+        window.location = "index.html"
+        window.localStorage.setItem ("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4")
+        } else {
+         alert ("Erreur dans l’identifiant ou le mot de passe")
+        }})
     .catch(err => alert ("Erreur dans l’identifiant ou le mot de passe"))
 })
