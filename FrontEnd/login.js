@@ -19,7 +19,7 @@ btnConnexion.addEventListener("click", function login() {
     }).then(data => {
         //stocker le token
         window.localStorage.setItem("token", data.token); 
-        window.location = "index.html";
+        window.location = "mode-edition.html";
     }).catch(err => {
         alert(err.message);
     });

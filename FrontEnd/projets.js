@@ -23,7 +23,7 @@ const gallerie = fetch ('http://localhost:5678/api/works')
     });
 });
 
-
+//Filtre Tous
 const btnTous = document.querySelector(".btn-tous");
 btnTous.addEventListener("click", function() {
     //fonction filter
@@ -39,7 +39,7 @@ btnTous.addEventListener("click", function() {
     })
 });
     
-
+//Filtre Objets
 const btnObjets = document.querySelector(".btn-objets");
 btnObjets.addEventListener("click", function() {
     const elementsObjets = dataJson.filter(projet=> projet.category.id === 1);
@@ -53,6 +53,7 @@ btnObjets.addEventListener("click", function() {
     })
 });
 
+//Filtre Appartements
 const btnAppartements = document.querySelector(".btn-appartements");
 btnAppartements.addEventListener("click", function() {
     const elementsAppartements = dataJson.filter(projet=> projet.category.id === 2);
@@ -66,6 +67,7 @@ btnAppartements.addEventListener("click", function() {
     })
 });
 
+//Filtre Hotel
 const btnHotel = document.querySelector(".btn-hotel");
 btnHotel.addEventListener("click", function() {
     const elementsHotel = dataJson.filter(projet=> projet.category.id === 3);
