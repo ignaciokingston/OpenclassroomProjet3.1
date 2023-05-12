@@ -13,7 +13,7 @@ btnConnexion.addEventListener ("click", function login() {
     }).then(res => {
         if (res.ok == true) {
         window.location = "index.html"
-        window.localStorage.setItem ("token", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImlhdCI6MTY1MTg3NDkzOSwiZXhwIjoxNjUxOTYxMzM5fQ.JGN1p8YIfR-M-5eQ-Ypy6Ima5cKA4VbfL2xMr2MgHm4")
+        window.localStorage.setItem ("token", "ABC")
         } else {
          alert ("Erreur dans l’identifiant ou le mot de passe")
         }})
