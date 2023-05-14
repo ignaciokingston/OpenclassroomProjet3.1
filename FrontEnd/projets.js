@@ -26,7 +26,7 @@ const gallerie = fetch ('http://localhost:5678/api/works')
 //Filtre Tous
 const btnTous = document.querySelector(".btn-tous");
 btnTous.addEventListener("click", function() {
-    //fonction filter
+    //fonction filter (élément en commun le usedId)
     const tousElements = dataJson.filter(projet=> projet.userId === 1);
     //effacer la gallerie
     projets.innerHTML = ''
@@ -81,7 +81,8 @@ btnHotel.addEventListener("click", function() {
     })
 });
     
-    
+
+
 
 
 
