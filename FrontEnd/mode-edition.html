@@ -55,17 +55,54 @@
                 <i class="fa-sharp fa-regular fa-pen-to-square"></i>
                 Modifier  
             </button>
-           
+           <!--première modale-->
             <div id="modal" class="modal">
                  <!--contenu de la modale-->
                 <div class="modal-content">
                 <span class="close">&times;</span>
                 <p>Galerie photo</p>
-                <div class="gallerie-modal"></div>
-                <hr>
-                <button>Ajouter une photo</button>
-                <button>Supprimer la galerie</button>
-                </div>
+				<i class="fa-solid fa-up-down-left-right"></i>
+				<div class ="gallerie-modal">
+					<div class="gallerie-modal1">
+						
+					</div>
+				</div>
+					<hr>
+					<button id= "btnModale2" class="btn-ajouter">Ajouter une photo</button>
+					<br>
+					<button class="btn-supprimer">Supprimer la galerie</button>
+					</div>			
+            </div>
+
+			<!--deuxième modale-->
+            <div id="modal2" class="modal">
+                 <!--contenu de la modale-->
+                <div class="modal-content">
+				<span class="retour">&larr;</span>
+                <span class="close">&times;</span>
+                <p class="titre-modal2">Ajout photo</p>
+					<div class ="ajouter-photo">
+						<i class="fa-sharp fa-regular fa-image"></i>
+						<br>
+						 <!--bouton pour ajouter photo avec input masqué-->
+						<input type="file" Id="fileInput" style="display: none;">
+						<button class="btn-ajout1" onclick="document.getElementById('fileInput').click()">+ Ajouter photo</button>
+						<p>jpg, png : 4mo max</p>
+					</div>
+					<div class="inputs2">
+						<p>Titre</p>
+						<input id= "titre" type="text" name="titre" required autofocus maxlength="70">
+						<p>Catégorie</p>
+						<select id= "categorie" type="text" name="categorie" required autocomplete="off">
+							<option value="" disabled selected hidden></option>
+							<option value="Objets">Objets</option>
+							<option value="Appartements">Appartements</option>
+							<option value="Hotels-&-Restaurants">Hotels & Restaurants</option>
+						</select>
+					</div>
+					<hr>
+					<button class="btn-valider">Valider</button>	
+				</div>		
             </div>
         </h2>
         

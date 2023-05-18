@@ -23,6 +23,7 @@ const gallerie = fetch ('http://localhost:5678/api/works')
     });
 });
 
+
 //Filtre Tous
 const btnTous = document.querySelector(".btn-tous");
 btnTous.addEventListener("click", function() {
@@ -81,7 +82,11 @@ btnHotel.addEventListener("click", function() {
     })
 });
     
-
+//Pour exporter la fonction à modale.js
+export function fetchJson () {
+    return fetch ('http://localhost:5678/api/works')
+    .then (res=>res.json());
+}
 
 
 
