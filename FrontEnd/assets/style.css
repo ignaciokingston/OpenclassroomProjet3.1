@@ -457,6 +457,8 @@ hr {
 }
 
 .ajouter-photo {
+	height: 232px;
+	margin-bottom: 10px;
 	background-color: #e2f0fb;
 	margin-right: 45px;
 }
@@ -476,7 +478,7 @@ hr {
 	background-color: lightsteelblue;
 	border: none;
 	color: #6086ab;
-	padding: 15px 75px 15px 75px;
+	padding: 15px 30px 15px 30px;
 	border-radius: 90px;
 	font-weight: bold;
 	font-family: syne;
@@ -545,3 +547,13 @@ hr {
 	cursor: pointer;
 }
 
+/*image preview*/
+.image-preview {
+	width: 13%;
+	object-fit: cover;
+	position: absolute;
+	top: 350px;
+	right: 0;
+	bottom: 0;
+	left: 555px;
+}

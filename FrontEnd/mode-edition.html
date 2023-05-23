@@ -85,9 +85,15 @@
 						<i class="fa-sharp fa-regular fa-image"></i>
 						<br>
 						 <!--bouton pour ajouter photo avec input masqué-->
-						<input type="file" Id="fileInput" style="display: none;">
-						<button class="btn-ajout1" onclick="document.getElementById('fileInput').click()">+ Ajouter photo</button>
-						<p>jpg, png : 4mo max</p>
+						<img id="image-preview" src="" alt="" class="image-preview">
+						<div class="text-preview">
+							<!--pour changer le texte dedans le input-->
+							<label for="fileInput" class="btn-ajout1">+ Ajouter photo</label>
+							<br>
+							<input type="file" Id="fileInput" style="display: none;">
+							<br>
+							<p>jpg, png : 4mo max</p>
+						</div>
 					</div>
 					<div class="inputs2">
 						<p>Titre</p>
