@@ -172,3 +172,93 @@ fileInput.addEventListener ('change', (event)=>{
   imagePreview.style.display = "none"
 })
 
+
+//Partie pour changer le couleur du bouton valider et ajouter un projet
+
+window.addEventListener ('DOMContentLoaded', function () {
+  var imageInput = document.getElementById ('fileInput');
+  var imagePreview = document.getElementById ('image-preview');
+  var titreInput = document.getElementById ('titre');
+  var categorieInput = document.getElementById ('categorie');
+  var boutonValider = document.querySelector ('.btn-valider');
+
+  //fonction pour changer le couleur du bouton valider et le rendre fonctionnel
+  function validerChamps (){
+    if (imagePreview.src !== '' && titreInput.value.trim() !== '' && categorieInput.value.trim() !== '' ) {
+      //changement de couleur
+      boutonValider.style.backgroundColor = '#1D6154';
+      //habiliter le bouton
+      boutonValider.disabled = false;
+    } else {
+      //pour mantenir le couleur en gris
+      boutonValider.style.backgroundColor = '#aaa';
+      //bloquer bouton
+      boutonValider.disabled = true;
+    }
+  }
+
+  imageInput.addEventListener ('change', function (){
+    var file = this.files[0];
+    var reader = new FileReader ();
+    
+    reader.onload = function (e) {
+      imagePreview.src = e.target.result;
+      validerChamps ();
+    }
+
+    reader.readAsDataURL(file);
+
+  });
+  titreInput.addEventListener ('input', validerChamps);
+  categorieInput.addEventListener ('change', validerChamps);
+
+  //function au moment de clicker sur bouton valider
+  boutonValider.addEventListener ('click', function (){
+    var title = titreInput.value.trim();
+    var imageUrl = imagePreview.src;
+
+    //Mapping des valeurs de categoryId
+    var categoryIdMap = {
+      "Objets" : 0,
+      "Appartements" : 1,
+      "Hotels & restaurants" : 2
+    };
+
+    //Pour obtenir la bonne valeur du mapping selon la catégorie
+    var categoryId = categoryIdMap[categorieInput.value.trim()];
+
+    // Création objet data
+    var data = {
+      title: title,
+      imageUrl: imageUrl,
+      categoryId: categoryId,
+    };
+
+    //réquête fetch POST
+    const token = localStorage.getItem ("token");
+
+    fetch ('http://localhost:5678/api/works', {
+      method: 'POST',
+      headers: {
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify (data)
+    })
+    .then (function (res){
+      if (res.ok) {
+        console.log ("Le nouveau projet a été bien enregistré");
+        //pour effacer les champs remplis
+        titreInput.value = '';
+        imagePreview.src ='';
+        categorieInput.value ='';
+        //fermer la modale
+        modal2.style.display = "none";
+      } else {
+        console.log ("Il y a eu un problème");
+      }
+    })
+    .catch (function (error){
+      console.error ("Il y a eu un problème");
+    })
+  })
+})
