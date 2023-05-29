@@ -230,8 +230,8 @@ window.addEventListener ('DOMContentLoaded', function () {
     // Création objet data
     var data = {
       title: title,
-      imageUrl: imageUrl,
-      categoryId: categoryId,
+      image: imageUrl,
+      category: categoryId,
     };
 
     //réquête fetch POST
@@ -254,7 +254,7 @@ window.addEventListener ('DOMContentLoaded', function () {
         //fermer la modale
         modal2.style.display = "none";
       } else {
-        console.log ("Il y a eu un problème");
+        console.log (res);
       }
     })
     .catch (function (error){
