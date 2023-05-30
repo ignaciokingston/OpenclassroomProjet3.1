@@ -213,9 +213,11 @@ window.addEventListener ('DOMContentLoaded', function () {
   categorieInput.addEventListener ('change', validerChamps);
 
   //function au moment de clicker sur bouton valider
-  boutonValider.addEventListener ('click', function (){
-    var title = titreInput.value.trim();
-    var imageUrl = imagePreview.src;
+  boutonValider.addEventListener ('click', function (event){
+    //pour éviter refresh de la page
+    event.preventDefault();
+    var titre = titreInput.value.trim();
+    var imageInput = fileInput.files [0];
 
     //Mapping des valeurs de categoryId
     var categoryIdMap = {
@@ -227,12 +229,14 @@ window.addEventListener ('DOMContentLoaded', function () {
     //Pour obtenir la bonne valeur du mapping selon la catégorie
     var categoryId = categoryIdMap[categorieInput.value.trim()];
 
-    // Création objet data
-    var data = {
-      title: title,
-      image: imageUrl,
-      category: categoryId,
-    };
+    //Form-data (exigé dans le body de la rêquete)
+    var formData = new FormData ();
+
+    formData.append('title', titre);
+    formData.append('image', imageInput);
+    formData.append('category', categoryId);
+
+   
 
     //réquête fetch POST
     const token = localStorage.getItem ("token");
@@ -242,7 +246,7 @@ window.addEventListener ('DOMContentLoaded', function () {
       headers: {
         "Authorization": `Bearer ${token}`
       },
-      body: JSON.stringify (data)
+      body: formData,
     })
     .then (function (res){
       if (res.ok) {
