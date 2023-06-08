@@ -62,7 +62,9 @@ dataJson.forEach (projet=> {
     gallerieModal.appendChild (elementProjet)
     //pour éliminer les projets en faisant click sur les icons
     const eliminer = elementProjet.querySelector (".fa-trash-can")
-    eliminer.addEventListener ("click", ()=> {
+    eliminer.addEventListener ("click", (event)=> {
+    //pour éviter la recharge de la page au moment d'éliminer le projet
+    event.preventDefault();
     eliminerProjet (projet.id);
     });
 });
