@@ -474,13 +474,11 @@ hr {
 }
 
 .btn-ajout1 {
-	margin: 10px;
 	background-color: lightsteelblue;
 	border: none;
 	color: #6086ab;
 	padding: 15px 30px 15px 30px;
 	border-radius: 90px;
-	font-weight: bold;
 	font-family: syne;
 	font-size: 17px;
 }
@@ -492,6 +490,18 @@ hr {
 .ajouter-photo p {
 	font-size: 13px;
 	padding-bottom: 30px;
+}
+
+.input-ajouter {
+	position: absolute;
+	top: 480px;
+	left: 480px;
+	font-size: 14px;
+
+}
+
+.input-ajouter:hover {
+	cursor: pointer;
 }
 
 .inputs2 {

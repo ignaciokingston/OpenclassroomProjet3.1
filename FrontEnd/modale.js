@@ -160,6 +160,13 @@ fileInput.addEventListener ('change', (event)=>{
 
   const file= event.target.files [0];
 
+  //Pour vérifier la taille de l'image
+  if (file && file.size > 4 * 1024 * 1024) {
+    alert ('Le fichier sélectionné est trop lourd. Veuillez sélectionner un fichier de 4 Mo ou moins')
+    //Pour effacer la valeur introduite
+    fileInput.value = ''
+  } else {
+
   const reader = new FileReader();
   //pour completer la source de l'image
   reader.addEventListener ('load', (event)=>{
@@ -172,6 +179,7 @@ fileInput.addEventListener ('change', (event)=>{
   //pour visualiser l'image et effacer le texte du bouton
   reader.readAsDataURL (file);
   imagePreview.style.display = "none"
+  }
 })
 
 
@@ -268,3 +276,9 @@ window.addEventListener ('DOMContentLoaded', function () {
     })
   })
 })
+
+//pour effacer le token au moment de clicker sur déconnexion
+let deconnexionLien = document.querySelector ('a[href="connexion.html"]');
+deconnexionLien.addEventListener ('click', function (event){
+  localStorage.removeItem ('token');
+});
