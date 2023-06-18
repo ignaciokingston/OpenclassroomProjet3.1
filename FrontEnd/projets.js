@@ -82,11 +82,6 @@ btnHotel.addEventListener("click", function() {
     })
 });
     
-//Pour exporter la fonction à modale.js
-export function fetchJson () {
-    return fetch ('http://localhost:5678/api/works')
-    .then (res=>res.json());
-}
 
 
 
